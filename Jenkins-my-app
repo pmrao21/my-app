@@ -7,4 +7,13 @@ node{
 		def mvnHOME = tool name: 'maven', type: 'maven'
 		sh "${mvnHOME}/bin/mvn clean package"
 	}
+	
+	stage ('e-mail Notifications')
+		
+		mail bcc: '', body: '''Hi
+
+		This is Jenkins job notifications
+
+		Regards
+		K''', cc: '', from: '', replyTo: '', subject: 'Test mail from Jenkins Job', to: 'rao.m.pulugujju@gmail.com'
 }
