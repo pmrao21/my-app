@@ -1,8 +1,9 @@
 node{
 	stage('SCM Checkout'){
+		def mvnHOME = tool name: 'maven', type: 'maven'
 		git 'https://github.com/pmrao21/my-app'
 	}
 	stage('Compile-Package'){
-		sh 'mvn clean package'
+		sh "${mvnHOME}/bin/mvn clean package"
 	}
 }
